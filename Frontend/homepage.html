@@ -60,7 +60,7 @@
                 <form action="">
                     <div class="input-group mb-3">
                         <span class="input-group-text">Roll NO</span>
-                        <input id="rollNo" type="number" min=0 class="form-control">
+                        <input placeholder="Enter Unique Roll:" id="rollNo" type="number" min=0 class="form-control">
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">Name</span>
@@ -72,10 +72,11 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">Marks</span>
-                        <input id="marks" type="text" class="form-control">
+                        <input id="marks" type="number" class="form-control">
                     </div>
                     <br>
-                    <button type="button" onclick="collectData()" class="btn btn-outline-success">Add Entry</button>
+                    <button type="button" id="addEntry" onclick="collectData()" class="btn btn-outline-success">Add
+                        Entry</button>
                 </form>
             </div>
 
@@ -100,10 +101,11 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">Marks</span>
-                        <input id="Umarks" type="text" class="form-control">
+                        <input id="Umarks" type="number" class="form-control">
                     </div>
                     <br>
-                    <button type="button" onclick="UpdateData()" class="btn btn-outline-success">Update</button>
+                    <button type="button" id="update" onclick="UpdateData()"
+                        class="btn btn-outline-success">Update</button>
                 </form>
             </div>
 
@@ -116,10 +118,11 @@
                 <form action="">
                     <div class="input-group mb-3">
                         <span class="input-group-text">Roll NO</span>
-                        <input id="D_rollNo" type="text" class="form-control">
+                        <input id="D_rollNo" type="number" class="form-control">
                     </div>
                     <br>
-                    <button type="button" onclick="deleteRecord()" class="btn btn-outline-danger">Delete</button>
+                    <button type="button" id="delete" onclick="deleteRecord()"
+                        class="btn btn-outline-danger">Delete</button>
                 </form>
             </div>
         </div>
@@ -129,12 +132,12 @@
                 <div class="col-3 mt-1 ">
                     <h2 class="text-success">Pass</h2>
                     <br>
-                    <h4>512</h4>
+                    <h4 id="passValue">512</h4>
                 </div>
                 <div class="col-3 mt-1 ">
                     <h2 class="text-danger">Fail</h2>
                     <br>
-                    <h4>12</h4>
+                    <h4 id="failValue">12</h4>
                 </div>
             </div>
         </div>
@@ -144,22 +147,24 @@
                 <h4>Filter by Grades</h4>
                 <br>
                 <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    <button type="button" onclick="A()" class="list-group-item  btn-outline-info">
                         A
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">B</a>
-                    <a href="#" class="list-group-item list-group-item-action">C</a>
-                    <a href="#" class="list-group-item list-group-item-action">D</a>
-                    <a href="#" class="list-group-item list-group-item-action">E</a>
-                    <a href="#" class="list-group-item list-group-item-action">FAIL</a>
+                    </button>
+                    <button href="#" onclick="B()" class="list-group-item 
+                     btn-outline-info">B</button>
+                    <button href="#" onclick="C()" class="list-group-item 
+                     btn-outline-info">C</button>
+                    <button href="#" onclick="D()" class="list-group-item 
+                     btn-outline-info">D</button>
+                    <button href="#" onclick="Fail()" class="list-group-item  btn-outline-info">FAIL</button>
                 </div>
             </div>
         </div>
 
-        <div id="Filter" class="row justify-content-center">
+        <div id="AllRecords" class="row justify-content-center" style="display: none;">
             <div class="col-6 mt-1 shadow p-4 mb-3 bg-body rounded ">
                 <h4>All Records</h4>
-                <table class="table">
+                <table class="table" id="table">
                     <thead>
                         <tr>
                             <th scope="col">Roll No</th>
@@ -168,12 +173,14 @@
                             <th scope="col">Marks</th>
                         </tr>
                     </thead>
+                    <tbody id="tablebody">
+
+                    </tbody>
 
                 </table>
 
             </div>
         </div>
-
 
         <div id="message" class="row justify-content-center" style="display: none;">
             <div class="col-6 mt-1 p-3">

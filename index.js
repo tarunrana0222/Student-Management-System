@@ -63,6 +63,50 @@ app.delete('/removeStudent', (req, res) => {
     })
 });
 
+app.get('/allDetails', (req, res) => {
+    student.find({}).then(d => {
+        console.log(d);
+        res.json(d);
+    })
+})
+
+app.get('/batchResult', async (req, res) => {
+    let obj = {
+        "pass": 0,
+        "fail": 0
+    }
+    obj.pass = await student.find({ "marks": { $gt: 50 } }).countDocuments();
+    obj.fail = await student.find({ "marks": { $lt: 50 } }).countDocuments();
+
+    res.json(obj);
+})
+
+app.get('/A', async (req, res) => {
+    student.find({ "marks": { $gte: 90 } }).then(d => {
+        res.json(d);
+    })
+});
+app.get('/B', async (req, res) => {
+    student.find({ "marks": { $gte: 80, $lt: 90 } }).then(d => {
+        res.json(d);
+    })
+});
+app.get('/C', async (req, res) => {
+    student.find({ "marks": { $gte: 70, $lt: 80 } }).then(d => {
+        res.json(d);
+    })
+});
+app.get('/D', async (req, res) => {
+    student.find({ "marks": { $gte: 60, $lt: 70 } }).then(d => {
+        res.json(d);
+    })
+});
+app.get('/Fail', async (req, res) => {
+    student.find({ "marks": { $lt: 50 } }).then(d => {
+        res.json(d);
+    })
+});
+
 
 
 app.listen(3000, () => {
