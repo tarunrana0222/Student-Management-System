@@ -1,0 +1,27 @@
+{
+  "name": "student-management-system",
+  "version": "1.0.0",
+  "description": "later",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tarunrana0222/Student-Management-System.git"
+  },
+  "author": "tarunrana0222",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tarunrana0222/Student-Management-System/issues"
+  },
+  "homepage": "https://github.com/tarunrana0222/Student-Management-System#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "hbs": "^4.1.1",
+    "mongoose": "^5.12.3",
+    "nodemon": "^2.0.7"
+  }
+}
