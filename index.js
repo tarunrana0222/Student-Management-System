@@ -5,7 +5,7 @@ const path = require('path');
 
 require('./database');
 const student = require('./Models/students');
-
+require('dotenv').config();
 const app = express();
 
 
@@ -109,6 +109,6 @@ app.get('/Fail', async (req, res) => {
 
 
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
     console.log("Running on port 3000");
 })
